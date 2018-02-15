@@ -1,42 +1,11 @@
 from gym.envs.registration import register
 
-
-"""
-Need to modify the code below for this environment
-
-# get samples for environment
-
-from gym_malware.envs.utils import interface, pefeatures
-sha256 = interface.get_available_sha256()
-# create a holdout set
-from sklearn.model_selection import train_test_split
-import numpy as np
-np.random.seed(123)
-sha256_train, sha256_holdout = train_test_split(sha256, test_size=200)
-
-MAXTURNS = 10
-
 register(
-    id='malware-v0',
-    entry_point='gym_malware.envs:MalwareEnv',
-    kwargs={'random_sample': True, 'maxturns': MAXTURNS, 'sha256list': sha256_train}
+    id='network-intrusion-v0',
+    entry_point='gym_network_intrusion.envs:NetworkIntrusionEnv',
 )
 
 register(
-    id='malware-test-v0',
-    entry_point='gym_malware.envs:MalwareEnv',
-    kwargs={'random_sample': False, 'maxturns': MAXTURNS, 'sha256list': sha256_holdout}
+    id='network-intrusion-extrahard-v0',
+    entry_point='gym_network_intrusion.envs:NetworkIntrusionExtraHardEnv',
 )
-
-register(
-    id='malware-score-v0',
-    entry_point='gym_malware.envs:MalwareScoreEnv',
-    kwargs={'random_sample': True, 'maxturns': MAXTURNS, 'sha256list': sha256_train}
-)
-
-register(
-    id='malware-score-test-v0',
-    entry_point='gym_malware.envs:MalwareScoreEnv',
-    kwargs={'random_sample': False, 'maxturns': MAXTURNS, 'sha256list': sha256_holdout}
-)
-"""
